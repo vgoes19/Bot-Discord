@@ -24,7 +24,7 @@ class KnowLow(discord.Client):
         )
 
     async def on_message(self, message):
-        
+
         if message.author == self.user:
             return
 
@@ -92,8 +92,7 @@ class KnowLow(discord.Client):
 
         await message.channel.send(mensagem_retorno)
    
-        
-
+    
 
 intents = discord.Intents.default()
 intents.message_content = True
