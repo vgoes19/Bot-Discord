@@ -67,7 +67,6 @@ class KnowLow(discord.Client):
 
 
     async def comandos_rolagem(self, message):
-        message = message.replace(" ", "")
         resultado_final_somado = 0
         mensagem_retorno = ""
 
