@@ -54,7 +54,7 @@ class KnowLow(discord.Client):
 
 
     async def comandos_know_low(self, message):
-        await self.avisos_canais_nao_permitidos(message)
+        #await self.avisos_canais_nao_permitidos(message)
 
         if message.content == '$ping':
             await message.channel.send('pong')
@@ -69,8 +69,8 @@ class KnowLow(discord.Client):
 
 
     async def comandos_rolagem(self, message):
-        await self.avisos_canais_nao_permitidos(message)
-        
+        #await self.avisos_canais_nao_permitidos(message)
+
         resultado_final_somado = 0
         mensagem_retorno = ""
 
