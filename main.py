@@ -9,7 +9,10 @@ TOKEN = os.getenv('TOKEN')
 funcionalidade_servidor = 'Um Novo Sol'
 lista_comandos = {
     '$ping': 'Rebate',
-    '$mpreco-item': 'Este comando irá buscar o melhor preço para o item desejado'
+    '$mpreco-item': 'Este comando irá buscar o melhor preço para o item desejado',
+    '$2d6': 'Comando utilizado para rolar dados, podendo colocar quantos dados deseja rolar e quantos lados os dados terão',
+    '$2d6+5': 'Comando utilizado para rolar dados com uma soma',
+    '$codigo': 'Este comando exibe o link para meu código fonte, fique livre para clonar ou contribuir para esse projeto !'
 }
 
 class KnowLow(discord.Client):
@@ -57,12 +60,14 @@ class KnowLow(discord.Client):
             await message.channel.send('Olá, meu nome é Know Low, meu criador é Vinícius Góes, tenho como objetivo te ajudar a encontrar o preço das coisas mais baratas possíveis mas também funciono como um bot de dados, utilize o comando: "$comandos" para saber mais')
         elif message.content == '$comandos': 
             resposta = "Comandos disponíveis:\n\n"
-            for comando, descricao in lista_comandos.items():
-                resposta += f"{comando}: {descricao}\n"
+            resposta += "\n".join([f"{comando}: {descricao}" for comando, descricao in lista_comandos.items()])
             await message.channel.send(resposta)
+        elif message.content == '$codigo':
+            await message.channel.send('https://github.com/vgoes19/Bot-Discord')
 
 
     async def comandos_rolagem(self, message):
+        message = message.replace(" ", "")
         resultado_final_somado = 0
         mensagem_retorno = ""
 
@@ -92,7 +97,7 @@ class KnowLow(discord.Client):
 
         await message.channel.send(mensagem_retorno)
    
-    
+
 
 intents = discord.Intents.default()
 intents.message_content = True
