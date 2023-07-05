@@ -9,7 +9,7 @@ TOKEN = os.getenv('TOKEN')
 funcionalidade_servidor = 'Um Novo Sol'
 lista_comandos = {
     '$ping': 'Rebate',
-    '$mpreco-item': 'Este comando irá buscar o melhor preço para o item desejado',
+    '$item-descricao': 'Este comando irá buscar os detalhes do item desejado na quinta edição do sistema D&D',
     '$2d6': 'Comando utilizado para rolar dados, podendo colocar quantos dados deseja rolar e quantos lados os dados terão',
     '$2d6+5': 'Comando utilizado para rolar dados com uma soma',
     '$codigo': 'Este comando exibe o link para meu código fonte, fique livre para clonar ou contribuir para esse projeto !'
@@ -66,10 +66,16 @@ class KnowLow(discord.Client):
             await message.channel.send(resposta)
         elif message.content == '$codigo':
             await message.channel.send('https://github.com/vgoes19/Bot-Discord')
+        elif '$item' in message.content:
+            await self.busca_item(message)
+            
 
+
+    async def busca_item(self, message):
+        print('entrou em funcao de busca item')
+        await message.channel.send('entrou em comando de busca de item')
 
     async def comandos_rolagem(self, message):
-        #await self.avisos_canais_nao_permitidos(message)
 
         resultado_final_somado = 0
         mensagem_retorno = ""
