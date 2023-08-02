@@ -4,6 +4,7 @@ import os
 from dotenv import load_dotenv
 import random
 
+#alteração teste
 load_dotenv()
 TOKEN = os.getenv('TOKEN')
 funcionalidade_servidor = 'Um Novo Sol'
